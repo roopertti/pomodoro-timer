@@ -3,13 +3,16 @@ import React from 'react'
 import './styles/styles.css'
 
 import Layout from 'Components/common/Layout'
-import Intro from 'Components/views/Intro'
+import ViewRouter from 'Components/views/ViewRouter'
+import AppWrapper from './AppWrapper'
 
 function App () {
   return (
-    <Layout>
-      <Intro />
-    </Layout>
+    <AppWrapper>
+      <Layout>
+        <ViewRouter />
+      </Layout>
+    </AppWrapper>
   )
 }
 

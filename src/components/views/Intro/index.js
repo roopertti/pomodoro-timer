@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 
 import Blockquote from 'Components/common/Blockquote'
 import Button from 'Components/common/Button'
+import useStore from 'Hooks/useStore'
 
 const variants = {
   hidden: {
@@ -19,7 +20,7 @@ const variants = {
  * Returns Intro motion props
  * @param {Number} delay Delay before component turns visible
  */
-function getMotionProps (delay = 0) {
+function getMotionProps (delay) {
   return {
     animate: 'visible',
     initial: 'hidden',
@@ -29,6 +30,12 @@ function getMotionProps (delay = 0) {
 }
 
 function Intro () {
+  const { completeIntro } = useStore()
+
+  function handleClick () {
+    completeIntro()
+  }
+
   return (
     <section data-testid="intro-view">
       <motion.div {...getMotionProps(1.5)}>
@@ -40,9 +47,9 @@ function Intro () {
       </motion.div>
       <motion.div
         className="flex justify-center py-8"
-        {...getMotionProps(3)}
+        {...getMotionProps(4)}
       >
-        <Button>Get started!</Button>
+        <Button onClick={handleClick}>Get started!</Button>
       </motion.div>
     </section>
   )
