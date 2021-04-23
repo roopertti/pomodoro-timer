@@ -3,5 +3,13 @@
     "include": [
       "jest"
     ]
-  }
+  },
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "paths": {
+      "Components": ["./src/components/"]
+    }
+  },
+  "include": ["src/**/*"]
 }
