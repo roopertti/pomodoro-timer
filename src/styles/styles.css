@@ -16,12 +16,30 @@
 
 @layer components {
   .blockquote {
-    @apply rounded bg-gray-100 p-4;
+    @apply rounded-md bg-gray-100 p-4;
     width: 300px;
   }
 
   .blockquote figcaption {
     text-align: right;
     font-weight: 600;
+  }
+
+  .btn {
+    color: #ffffff;
+    outline: none;
+    @apply bg-blue-400 rounded-md px-4 py-2;
+  }
+
+  .btn:hover, .btn:focus {
+    color: #ffffff;
+    @apply bg-blue-500 rounded-md px-4 py-2;
+    outline: none;
+  }
+
+  .btn:active {
+    color: #ffffff;
+    @apply bg-blue-600 rounded-md px-4 py-2;
+    outline: none;
   }
 }
