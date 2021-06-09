@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import App from './App'
+import App from '../src/App'
 
 describe('App component tests', () => {
   it('render App', () => {
