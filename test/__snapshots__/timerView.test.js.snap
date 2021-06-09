@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timer view integration tests renders Timer view and compares snapshot 1`] = `
+<section
+  data-testid="timer-view"
+  style={
+    Object {
+      "opacity": 0,
+      "transform": "translateY(-30px)",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "height": "100%",
+        "opacity": 1,
+      }
+    }
+  >
+    <header
+      className="py-4 mb-4"
+    >
+      <h2>
+        Select your next activity
+      </h2>
+      <p
+        className="text-center"
+      >
+        Either start working or have a short break.
+      </p>
+    </header>
+    <div
+      className="block sm:flex"
+    >
+      <div
+        className="mb-4 sm:mr-2"
+      >
+        <button
+          className="btn btn-success"
+          data-testid="start-work"
+          onClick={[Function]}
+          style={
+            Object {
+              "transform": "translateY(0px)",
+            }
+          }
+        >
+          Start working (25min)
+        </button>
+      </div>
+      <div
+        className="mb-4"
+      >
+        <button
+          className="btn btn-secondary"
+          data-testid="start-break"
+          onClick={[Function]}
+          style={
+            Object {
+              "transform": "translateY(0px)",
+            }
+          }
+        >
+          Start break (5min)
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    style={
+      Object {
+        "height": "0",
+        "opacity": 0,
+      }
+    }
+  >
+    <p
+      className="flex justify-center"
+    >
+      Work in progress...
+    </p>
+    <div
+      className="flex justify-center mb-4"
+      data-testid="timer-component"
+    >
+      <span
+        className="timer"
+        data-testid="timer-mmss"
+      >
+        00:00
+      </span>
+    </div>
+    <div
+      className="flex justify-center mb-4"
+    >
+      <button
+        className="btn btn-success"
+        data-testid="timer-btn"
+        onClick={[Function]}
+        style={
+          Object {
+            "transform": "translateY(0px)",
+          }
+        }
+      >
+        Resume
+      </button>
+    </div>
+  </div>
+</section>
+`;
