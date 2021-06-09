@@ -3,10 +3,20 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Orelega+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Orelega One', cursive;
+    @apply text-center;
+  }
+
+  h1 {
+    @apply text-2xl py-8;
+  }
+
+  h2 {
+    @apply text-xl py-4;
   }
 
   p {
@@ -28,18 +38,61 @@
   .btn {
     color: #ffffff;
     outline: none;
-    @apply bg-blue-400 rounded-md px-4 py-2;
+    @apply bg-blue-400 rounded-md px-4 py-2 min-w-full sm:min-w-0;
+  }
+
+  .btn:hover, .btn:focus, .btn:active {
+    color: #ffffff;
+    outline: none;
   }
 
   .btn:hover, .btn:focus {
-    color: #ffffff;
-    @apply bg-blue-500 rounded-md px-4 py-2;
-    outline: none;
+    @apply bg-blue-500;
   }
 
   .btn:active {
-    color: #ffffff;
-    @apply bg-blue-600 rounded-md px-4 py-2;
-    outline: none;
+    @apply bg-blue-600;
+  }
+
+  .btn-success {
+    @apply bg-green-400;
+  }
+
+  .btn-success:hover, .btn-success:focus {
+    @apply bg-green-500;
+  }
+
+  .btn-success:active {
+    @apply bg-green-600;
+  }
+
+  .btn-error {
+    @apply bg-red-400;
+  }
+
+  .btn-error:hover, .btn-error:focus {
+    @apply bg-red-500;
+  }
+
+  .btn-error:active {
+    @apply bg-red-600;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-400;
+  }
+
+  .btn-secondary:hover, .btn-secondary:focus {
+    @apply bg-gray-500;
+  }
+
+  .btn-secondary:active {
+    @apply bg-gray-600;
+  }
+
+  .timer {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
   }
 }

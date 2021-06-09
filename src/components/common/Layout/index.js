@@ -30,7 +30,7 @@ function Layout ({ children }) {
 
   return (
     <div className="h-full flex flex-col items-center" data-testid="app-layout">
-      <header className="text-2xl py-8">
+      <header>
         <motion.h1 {...headerMotionProps}>
           Pomodoro timer
         </motion.h1>

@@ -2,12 +2,12 @@ import React from 'react'
 
 import useStore from 'Hooks/useStore'
 import Intro from 'Components/views/Intro'
-import Timer from 'Components/views/Timer'
+import Main from 'Components/views/Main'
 
 function ViewRouter () {
   const { state } = useStore()
 
-  return state.introComplete ? <Timer /> : <Intro />
+  return state.introComplete ? <Main /> : <Intro />
 }
 
 export default ViewRouter

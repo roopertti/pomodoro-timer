@@ -6,8 +6,10 @@ import {
   SET_INTRO_COMPLETE
 } from 'Util/constants'
 
-const initialState = JSON.parse(localStorage.getItem(STORE_KEY)) || { introComplete: false }
+const initialState = JSON.parse(localStorage.getItem(STORE_KEY)) || { introComplete: false, entries: [] }
+
 export const StoreContext = React.createContext(initialState)
+
 const { Provider } = StoreContext
 
 function reducer (state, action) {

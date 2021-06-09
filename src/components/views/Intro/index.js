@@ -49,7 +49,7 @@ function Intro () {
         className="flex justify-center py-8"
         {...getMotionProps(4)}
       >
-        <Button onClick={handleClick}>Get started!</Button>
+        <Button testId="get-started-btn" onClick={handleClick}>Get started!</Button>
       </motion.div>
     </section>
   )

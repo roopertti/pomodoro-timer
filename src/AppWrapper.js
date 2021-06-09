@@ -2,11 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { StoreProvider } from 'Contexts/StoreContext'
+import { TimerProvider } from 'Contexts/TimerContext'
 
 function AppWrapper ({ children }) {
   return (
     <StoreProvider>
-      {children}
+      <TimerProvider>
+        {children}
+      </TimerProvider>
     </StoreProvider>
   )
 }
