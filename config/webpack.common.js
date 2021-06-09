@@ -22,6 +22,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader']
+      },
+      {
+        test: /\.wav$/,
+        type: 'asset/resource'
       }
     ]
   },
@@ -33,7 +37,8 @@ module.exports = {
       Components: path.join(__dirname, '..', 'src', 'components'),
       Util: path.join(__dirname, '..', 'src', 'util'),
       Contexts: path.join(__dirname, '..', 'src', 'contexts'),
-      Hooks: path.join(__dirname, '..', 'src', 'hooks')
+      Hooks: path.join(__dirname, '..', 'src', 'hooks'),
+      Assets: path.join(__dirname, '..', 'src', 'assets')
     }
   }
 }

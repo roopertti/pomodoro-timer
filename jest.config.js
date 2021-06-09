@@ -16,7 +16,8 @@ module.exports = {
     '^Components(.*)$': '<rootDir>/src/components$1',
     '^Util(.*)$': '<rootDir>/src/util$1',
     '^Contexts(.*)$': '<rootDir>/src/contexts$1',
-    '^Hooks(.*)$': '<rootDir>/src/hooks$1'
+    '^Hooks(.*)$': '<rootDir>/src/hooks$1',
+    '^Assets(.*)$': '<rootDir>/src/assets$1'
   },
   setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
   verbose: true

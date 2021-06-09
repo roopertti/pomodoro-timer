@@ -11,7 +11,8 @@
       "Components": ["./src/components/"],
       "Util": ["./src/util/"],
       "Contexts": ["./src/contexts"],
-      "Hooks": ["./src/hooks"]
+      "Hooks": ["./src/hooks"],
+      "Assets": ["./src/assets"]
     }
   },
   "include": ["src/**/*"]
