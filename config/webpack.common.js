@@ -5,7 +5,8 @@ module.exports = {
   entry: path.join(__dirname, '..', 'src', 'index.js'),
   output: {
     path: path.join(__dirname, '..', 'build'),
-    filename: '[name].js'
+    filename: '[name].bundle.js',
+    clean: true
   },
   module: {
     rules: [
@@ -21,7 +22,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader'
+        ]
       },
       {
         test: /\.wav$/,
