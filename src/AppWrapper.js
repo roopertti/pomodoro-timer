@@ -1,19 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StoreProvider } from 'Contexts/StoreContext'
+import { StorageProvider } from 'Contexts/StorageContext'
 import { TimerProvider } from 'Contexts/TimerContext'
 import { AlarmProvider } from 'Contexts/AlarmContext'
+import { DBProvider } from 'Contexts/DBContext'
 
 function AppWrapper ({ children }) {
   return (
-    <StoreProvider>
-      <TimerProvider>
-        <AlarmProvider>
-          {children}
-        </AlarmProvider>
-      </TimerProvider>
-    </StoreProvider>
+    <DBProvider>
+      <StorageProvider>
+        <TimerProvider>
+          <AlarmProvider>
+            {children}
+          </AlarmProvider>
+        </TimerProvider>
+      </StorageProvider>
+    </DBProvider>
   )
 }
 

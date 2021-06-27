@@ -1,5 +1,7 @@
 import '@testing-library/jest-dom'
 
+require('fake-indexeddb/auto')
+
 /**
  * Local storage mock class
  */

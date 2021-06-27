@@ -1,11 +1,11 @@
 import React from 'react'
 
-import useStore from 'Hooks/useStore'
+import useStorage from 'Hooks/useStorage'
 import Intro from 'Components/views/Intro'
 import Main from 'Components/views/Main'
 
 function ViewRouter () {
-  const { state } = useStore()
+  const { state } = useStorage()
 
   return state.introComplete ? <Main /> : <Intro />
 }

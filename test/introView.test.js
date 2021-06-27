@@ -16,7 +16,7 @@ describe('Intro view integration tests', () => {
     expect(getByTestId('intro-view')).toBeInTheDocument()
     fireEvent.click(getByTestId('get-started-btn'))
     await waitFor(() => {
-      expect(JSON.parse(global.localStorage.getItem(STORE_KEY))).toStrictEqual({ introComplete: true, entries: [] })
+      expect(JSON.parse(global.localStorage.getItem(STORE_KEY))).toStrictEqual({ introComplete: true })
     })
   })
 })
