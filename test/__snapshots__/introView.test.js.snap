@@ -40,11 +40,6 @@ exports[`Intro view integration tests renders and compares snapshot 1`] = `
       className="btn"
       data-testid="get-started-btn"
       onClick={[Function]}
-      style={
-        Object {
-          "transform": "translateY(0px)",
-        }
-      }
     >
       Get started!
     </button>

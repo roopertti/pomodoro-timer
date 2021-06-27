@@ -1,5 +1,8 @@
 import '@testing-library/jest-dom'
 
+/**
+ * Local storage mock class
+ */
 class LocalStorageMock {
   constructor () {
     this.store = {}
@@ -23,3 +26,9 @@ class LocalStorageMock {
 };
 
 global.localStorage = new LocalStorageMock()
+
+/**
+ * Media element mock functions
+ */
+global.window.HTMLMediaElement.prototype.pause = () => {}
+global.window.HTMLMediaElement.prototype.play = () => {}

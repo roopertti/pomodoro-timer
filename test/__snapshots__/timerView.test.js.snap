@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Timer view integration tests renders Timer view and compares snapshot 1`] = `
+exports[`Timer view integration tests renders initial Timer view with AppWrapper and compares snapshot 1`] = `
 <section
   data-testid="timer-view"
   style={
@@ -40,11 +40,6 @@ exports[`Timer view integration tests renders Timer view and compares snapshot 1
           className="btn btn-success"
           data-testid="start-work"
           onClick={[Function]}
-          style={
-            Object {
-              "transform": "translateY(0px)",
-            }
-          }
         >
           Start working (25min)
         </button>
@@ -56,11 +51,6 @@ exports[`Timer view integration tests renders Timer view and compares snapshot 1
           className="btn btn-secondary"
           data-testid="start-break"
           onClick={[Function]}
-          style={
-            Object {
-              "transform": "translateY(0px)",
-            }
-          }
         >
           Start break (5min)
         </button>
@@ -76,37 +66,101 @@ exports[`Timer view integration tests renders Timer view and compares snapshot 1
     }
   >
     <p
-      className="flex justify-center"
-    >
-      Work in progress...
-    </p>
+      className="flex justify-center text-lg my-4"
+      data-testid="timer-description"
+    />
     <div
-      className="flex justify-center mb-4"
-      data-testid="timer-component"
+      className="flex justify-center my-4"
     >
-      <span
-        className="timer"
-        data-testid="timer-mmss"
+      <div
+        className="flex justify-center mb-4 w-48"
+        data-testid="timer-component"
       >
-        00:00
-      </span>
+        <div
+          data-test-id="CircularProgressbarWithChildren"
+        >
+          <div
+            style={
+              Object {
+                "height": "100%",
+                "position": "relative",
+                "width": "100%",
+              }
+            }
+          >
+            <svg
+              className="CircularProgressbar "
+              data-test-id="CircularProgressbar"
+              style={Object {}}
+              viewBox="0 0 100 100"
+            >
+              <path
+                className="CircularProgressbar-trail"
+                d="
+      M 50,50
+      m 0,-49
+      a 49,49 0 1 1 0,98
+      a 49,49 0 1 1 0,-98
+    "
+                fillOpacity={0}
+                strokeWidth={2}
+                style={
+                  Object {
+                    "strokeDasharray": "307.8760800517997px 307.8760800517997px",
+                    "strokeDashoffset": "0px",
+                    "strokeLinecap": "butt",
+                  }
+                }
+              />
+              <path
+                className="CircularProgressbar-path"
+                d="
+      M 50,50
+      m 0,-49
+      a 49,49 0 1 1 0,98
+      a 49,49 0 1 1 0,-98
+    "
+                fillOpacity={0}
+                strokeWidth={2}
+                style={
+                  Object {
+                    "stroke": "rgba(96, 165, 250)",
+                    "strokeDasharray": "307.8760800517997px 307.8760800517997px",
+                    "strokeDashoffset": "NaNpx",
+                    "strokeLinecap": "butt",
+                  }
+                }
+              />
+            </svg>
+            <div
+              data-test-id="CircularProgressbarWithChildren__children"
+              style={
+                Object {
+                  "alignItems": "center",
+                  "display": "flex",
+                  "flexDirection": "column",
+                  "height": "100%",
+                  "justifyContent": "center",
+                  "marginTop": "-100%",
+                  "position": "absolute",
+                  "width": "100%",
+                }
+              }
+            >
+              <span
+                className="timer"
+                data-testid="timer-mmss"
+              >
+                00:00
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div
       className="flex justify-center mb-4"
-    >
-      <button
-        className="btn btn-success"
-        data-testid="timer-btn"
-        onClick={[Function]}
-        style={
-          Object {
-            "transform": "translateY(0px)",
-          }
-        }
-      >
-        Resume
-      </button>
-    </div>
+    />
   </div>
 </section>
 `;
