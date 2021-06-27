@@ -2,7 +2,7 @@ import { useContext } from 'react'
 
 import { TimerContext } from 'Contexts/TimerContext'
 import { parseSecondsToTimeString } from 'Util/timeFormat'
-import { TIMER_STATE } from 'Util/constants'
+import { TIMER_STATE, TIMER_DURATIONS } from 'Util/constants'
 
 function useTimer () {
   const {
@@ -11,13 +11,27 @@ function useTimer () {
     startWork,
     timerState,
     startBreak,
-    toggleRunning
+    toggleRunning,
+    currentDuration
   } = useContext(TimerContext)
 
+  /**
+   * Returns seconds formatted as time string (MM:SS)
+   * @returns {String} Time string
+   */
   const getFormattedTime = () => parseSecondsToTimeString(seconds)
-  const isRunning = () => timerState === TIMER_STATE.RUNNING
-  const isStopped = () => timerState === TIMER_STATE.STOPPED
-  const isInitial = () => timerState === TIMER_STATE.INITIAL
+
+  /**
+   * Different timer states as boolean values
+   */
+  const isRunning = timerState === TIMER_STATE.RUNNING
+  const isStopped = timerState === TIMER_STATE.STOPPED
+  const isInitial = timerState === TIMER_STATE.INITIAL
+  const isComplete = timerState === TIMER_STATE.COMPLETE
+  const isWorkOngoing = currentDuration === TIMER_DURATIONS.WORK && isRunning
+  const isBreakOngoing = currentDuration === TIMER_DURATIONS.BREAK && isRunning
+  const isWorkComplete = currentDuration === TIMER_DURATIONS.WORK && isComplete
+  const isBreakComplete = currentDuration === TIMER_DURATIONS.BREAK && isComplete
 
   return {
     seconds,
@@ -28,7 +42,13 @@ function useTimer () {
     toggleRunning,
     isRunning,
     isStopped,
-    isInitial
+    isInitial,
+    isComplete,
+    currentDuration,
+    isWorkOngoing,
+    isBreakOngoing,
+    isWorkComplete,
+    isBreakComplete
   }
 }
 

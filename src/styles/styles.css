@@ -39,6 +39,7 @@
     color: #ffffff;
     outline: none;
     @apply bg-blue-400 rounded-md px-4 py-2 min-w-full sm:min-w-0;
+    transition-duration: 200ms;
   }
 
   .btn:hover, .btn:focus, .btn:active {
@@ -50,8 +51,15 @@
     @apply bg-blue-500;
   }
 
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
   .btn:active {
     @apply bg-blue-600;
+    transform: translateY(0);
+    box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.1), 0 5px 5px -5px rgba(0, 0, 0, 0.04);
   }
 
   .btn-success {

@@ -3,12 +3,15 @@ import PropTypes from 'prop-types'
 
 import { StoreProvider } from 'Contexts/StoreContext'
 import { TimerProvider } from 'Contexts/TimerContext'
+import { AlarmProvider } from 'Contexts/AlarmContext'
 
 function AppWrapper ({ children }) {
   return (
     <StoreProvider>
       <TimerProvider>
-        {children}
+        <AlarmProvider>
+          {children}
+        </AlarmProvider>
       </TimerProvider>
     </StoreProvider>
   )

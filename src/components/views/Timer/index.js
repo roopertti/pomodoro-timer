@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 
 import ActivitySelection from 'Components/timer/ActivitySelection'
 import Clock from 'Components/timer/Clock'
+import ClockWrapper from 'Components/timer/ClockWrapper'
 import TimerControls from 'Components/timer/TimerControls'
 import useTimer from 'Hooks/useTimer'
 
@@ -41,7 +42,7 @@ function Timer () {
     >
       <motion.div
         initial="visible"
-        animate={isInitial() ? 'visible' : 'hidden'}
+        animate={isInitial ? 'visible' : 'hidden'}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         variants={shrinkVariants}
       >
@@ -49,12 +50,13 @@ function Timer () {
       </motion.div>
       <motion.div
         initial="hidden"
-        animate={!isInitial() ? 'visible' : 'hidden'}
+        animate={!isInitial ? 'visible' : 'hidden'}
         transition={{ duration: 0.5, ease: 'easeOut' }}
         variants={shrinkVariants}
       >
-        <p className="flex justify-center">Work in progress...</p>
-        <Clock />
+        <ClockWrapper>
+          <Clock />
+        </ClockWrapper>
         <TimerControls />
       </motion.div>
     </motion.section>

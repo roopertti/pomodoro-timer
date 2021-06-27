@@ -1,21 +1,28 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { TIMER_STATE } from 'Util/constants'
+import { TIMER_STATE, TIMER_DURATIONS } from 'Util/constants'
 
 export const TimerContext = React.createContext()
 const { Provider } = TimerContext
 
 export function TimerProvider ({ children }) {
   const [seconds, setSeconds] = useState(0)
+  const [currentDuration, setCurrentDuration] = useState(0)
   const [timerState, setTimerState] = useState(TIMER_STATE.INITIAL)
   const timer = useRef(null)
 
   // This effect is fired when seconds change / timer gets activated
   useEffect(() => {
     // Stop here if timer is not running
-    if (timerState === TIMER_STATE.INITIAL || timerState === TIMER_STATE.STOPPED) {
+    if (timerState === TIMER_STATE.INITIAL || timerState === TIMER_STATE.STOPPED || timerState === TIMER_STATE.COMPLETE) {
       clearTimeout(timer.current)
+      return
+    }
+
+    // Set timer as completed
+    if (seconds <= 0 && timerState === TIMER_STATE.RUNNING) {
+      setTimerState(TIMER_STATE.COMPLETE)
       return
     }
 
@@ -30,13 +37,15 @@ export function TimerProvider ({ children }) {
   }, [timerState, seconds])
 
   function startWork () {
-    setSeconds(1500)
+    setSeconds(TIMER_DURATIONS.WORK)
+    setCurrentDuration(TIMER_DURATIONS.WORK)
     setTimerState(TIMER_STATE.RUNNING)
   }
 
   function startBreak () {
-    setSeconds(300)
-    setTimerState(TIMER_STATE.STOPPED)
+    setSeconds(TIMER_DURATIONS.BREAK)
+    setCurrentDuration(TIMER_DURATIONS.BREAK)
+    setTimerState(TIMER_STATE.RUNNING)
   }
 
   function handleReset () {
@@ -65,9 +74,18 @@ export function TimerProvider ({ children }) {
       handleReset,
       startWork,
       startBreak,
-      toggleRunning
+      toggleRunning,
+      currentDuration
     }
-  }, [seconds, timerState, handleReset, startWork, startBreak, toggleRunning])
+  }, [
+    seconds,
+    timerState,
+    handleReset,
+    startWork,
+    startBreak,
+    toggleRunning,
+    currentDuration
+  ])
 
   return (
     <Provider value={contextValue}>{children}</Provider>

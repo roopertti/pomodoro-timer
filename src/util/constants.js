@@ -9,5 +9,12 @@ export const ADD_ENTRY = 'ADD_ENTRY'
 export const TIMER_STATE = {
   INITIAL: 'INITIAL',
   RUNNING: 'RUNNING',
-  STOPPED: 'STOPPED'
+  STOPPED: 'STOPPED',
+  COMPLETE: 'COMPLETE'
+}
+
+export const TIMER_DURATIONS = {
+  WORK: 1500,
+  BREAK: 300,
+  LONG_BREAK: 5
 }

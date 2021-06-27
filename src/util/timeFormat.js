@@ -52,7 +52,7 @@ export const formatNum = (num) => {
   return numStr.length > 1 ? numStr : numStr.padStart(2, '0')
 }
 
-export function parseSecondsToTimeString (seconds = 0) {
+export function parseSecondsToTimeString (seconds) {
   if (seconds === Infinity || seconds >= MAX_VALUE) { // 😎
     return '99:59:59'
   } else if (seconds < 0) {
