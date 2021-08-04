@@ -5,7 +5,7 @@ import { StorageContext } from 'Contexts/StorageContext'
 function useStorage () {
   const { state, setState } = useContext(StorageContext)
 
-  function completeIntro () {
+  const completeIntro = () => {
     setState({ ...state, introComplete: true })
   }
 

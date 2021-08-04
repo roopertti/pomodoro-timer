@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import { TIMER_STATE, TIMER_DURATIONS } from 'Util/constants'
+import { TIMER_STATE, TIMER_DURATIONS, ENTRY_TYPES } from 'Util/constants'
+import useDB from 'Hooks/useDB'
 
 export const TimerContext = React.createContext()
 const { Provider } = TimerContext
@@ -11,6 +12,7 @@ export function TimerProvider ({ children }) {
   const [currentDuration, setCurrentDuration] = useState(0)
   const [timerState, setTimerState] = useState(TIMER_STATE.INITIAL)
   const timer = useRef(null)
+  const { createEntry } = useDB()
 
   // This effect is fired when seconds change / timer gets activated
   useEffect(() => {
@@ -23,6 +25,16 @@ export function TimerProvider ({ children }) {
     // Set timer as completed
     if (seconds <= 0 && timerState === TIMER_STATE.RUNNING) {
       setTimerState(TIMER_STATE.COMPLETE)
+      switch (currentDuration) {
+        case TIMER_DURATIONS.WORK:
+          createEntry({ type: ENTRY_TYPES.WORK, length: currentDuration })
+          break
+        case TIMER_DURATIONS.BREAK:
+          createEntry({ type: ENTRY_TYPES.WORK, length: currentDuration })
+          break
+        default:
+          break
+      }
       return
     }
 
