@@ -13,8 +13,13 @@ export const TIMER_STATE = {
   COMPLETE: 'COMPLETE'
 }
 
+export const ENTRY_TYPES = {
+  WORK: 'WORK',
+  BREAK: 'BREAK'
+}
+
 export const TIMER_DURATIONS = {
   WORK: 1500,
   BREAK: 300,
-  LONG_BREAK: 5
+  LONG_BREAK: 900
 }

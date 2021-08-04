@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 import Blockquote from 'Components/common/Blockquote'
 import Button from 'Components/common/Button'
-import useStore from 'Hooks/useStore'
+import useStorage from 'Hooks/useStorage'
 
 const variants = {
   hidden: {
@@ -30,7 +30,7 @@ function getMotionProps (delay) {
 }
 
 function Intro () {
-  const { completeIntro } = useStore()
+  const { completeIntro } = useStorage()
 
   function handleClick () {
     completeIntro()

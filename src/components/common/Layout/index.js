@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
 
-import useStore from 'Hooks/useStore'
+import useStorage from 'Hooks/useStorage'
 
 const variants = {
   visible: { opacity: 1 },
@@ -23,7 +23,7 @@ function getMotionProps (initial = 'hidden', delay = 0) {
 }
 
 function Layout ({ children }) {
-  const { state } = useStore()
+  const { state } = useStorage()
 
   const headerMotionProps = state.introComplete ? getMotionProps('visible') : getMotionProps()
   const footerMotionProps = state.introComplete ? getMotionProps('visible') : getMotionProps('hidden', 4)
